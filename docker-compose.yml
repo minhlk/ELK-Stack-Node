@@ -1,0 +1,13 @@
+version: '3.2'
+
+services:
+    app:
+        build:
+            context: .
+        container_name: app-node-elk
+        ports: 
+            - "3000:3000"
+        logging:
+            driver: gelf
+            options:
+                gelf-address: "udp://localhost:5000"
